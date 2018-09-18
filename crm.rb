@@ -132,3 +132,7 @@ Contact.create('USMA', 'Rage', 'Usma_Rage@gmail', 'SHEHEHE')
 
 my_crm = CRM.new
 my_crm.main_menu
+
+at_exit do
+  ActiveRecord::Base.connection.close
+end
