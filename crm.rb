@@ -51,7 +51,13 @@ class CRM
     print 'Enter a Note: '
     note = gets.chomp
 
-    Contact.create(first_name, last_name, email, note)
+    contact = Contact.create(
+      first_name: first_name,
+      last_name:  last_name,
+      email:      email,
+      note:       note
+    )
+
   end
 
   def modify_existing_contact
@@ -124,11 +130,11 @@ class CRM
 end
 
 ##initialize Array
-Contact.create('Joe', 'Smith', 'JoeSmith@gmail', 'SHEHEHE')
-Contact.create('Bob', 'Dad', 'BobDad@gmail', 'SHEHEHE')
-Contact.create('Dave', 'Solo', 'DaveSolo@gmail', 'SHEHEHE')
-Contact.create('Randy', 'Victor', 'RandyVictor@gmail', 'SHEHEHE')
-Contact.create('USMA', 'Rage', 'Usma_Rage@gmail', 'SHEHEHE')
+#Contact.create('Joe', 'Smith', 'JoeSmith@gmail', 'SHEHEHE')
+#Contact.create('Bob', 'Dad', 'BobDad@gmail', 'SHEHEHE')
+#Contact.create('Dave', 'Solo', 'DaveSolo@gmail', 'SHEHEHE')
+#Contact.create('Randy', 'Victor', 'RandyVictor@gmail', 'SHEHEHE')
+#Contact.create('USMA', 'Rage', 'Usma_Rage@gmail', 'SHEHEHE')
 
 my_crm = CRM.new
 my_crm.main_menu
