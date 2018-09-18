@@ -67,20 +67,24 @@ class CRM
     print "Enter the value of the attribute to search by "
     user_input_value = gets.chomp
 
-    print "Which attributes would you like to modify separated by a comma"
+    print "Which attributes would you like to modify separated by a comma "
     user_input_new_attributes = gets.chomp.split(',')
 
-    print "New values of the attributes separated by a comma"
+    print "New values of the attributes separated by a comma "
     user_input_new_values = gets.chomp.split(',')
 
-    if user_input_new_attributes.size == user_input_new_values
+    if user_input_new_attributes.size == user_input_new_values.size
       update_hash = Hash[user_input_new_attributes.zip user_input_new_values]
       item_to_modify =  Contact.find_by(user_input_attribute => user_input_value)
-      item_to_modify.update(update_hash)
+      if(item_to_modify)
+        item_to_modify.update(update_hash)
+        puts "Update Successful"
+      else
+        puts "Was unable to locate the contact"
+      end
     else
       puts "Error Invalid number of arguments & values, could not update contact"
     end
-
   end
 
   def delete_contact
@@ -98,7 +102,7 @@ class CRM
     else
       puts "Could not delete contact"
     end
-    
+
   end
 
   def display_all_contacts
