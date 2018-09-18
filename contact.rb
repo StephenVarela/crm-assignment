@@ -13,6 +13,17 @@ class Contact < ActiveRecord::Base
   field :email, as: :string
   field :note, as: :text
 
+  def self.find(options)
+    check_array = ['first_name', 'last_name', 'email', 'note']
+
+    if check_array.include?(options.keys[0])
+      return Contact.find_by(options)
+    else
+      puts "Error access specifier does not exist in the table"
+      return nil
+    end
+  end
+
   def full_name
     puts "Full name: #{first_name} #{last_name}"
   end
